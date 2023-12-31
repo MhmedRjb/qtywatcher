@@ -213,3 +213,6 @@ app_license = "MIT"
 # auth_hooks = [
 # 	"qtywatcher.auth.validate"
 # ]
+
+#add all custom fields to item
+fixtures = ["Custom Field"]
