@@ -6,7 +6,7 @@ class CustomStockLedgerEntry(StockLedgerEntry):
         self.db_set('custom_nosquantity', 12)
         print("after insert")
         print(self.voucher_no)
-        print(self.vocher_Detail_no)
+        print(self.voucher_detail_no)
         #print custom_nosquantity from stocke entry 
 
 
