@@ -14,26 +14,78 @@ class CustomStockLedgerEntry(StockLedgerEntry):
     #     #     self.db_set('custom_actual_qty', 0)
     #     self.db_set('custom_nosquantity_after_transaction', 125)
     # def before_insert(self):
+    # def before_insert(self):
 
-    def after_insert(self):
+    #     lastrelatedstockledgerentry = frappe.db.sql("""SELECT sle.custom_nosquantity_after_transaction 
+    #                                                     FROM `tabStock Ledger Entry` sle
+    #                                                     WHERE sle.voucher_type = %s 
+    #                                                     AND sle.warehouse = %s 
+    #                                                     AND sle.item_code = %s 
+    #                                                     AND sle.batch_no = %s 
+    #                                                     AND sle.serial_no = %s
+    #                                                     ORDER BY sle.creation DESC 
+    #                                                     LIMIT 1 OFFSET 1;
+    #                                                                     """,
+    #     (self.voucher_type, self.warehouse, self.item_code, self.batch_no, self.serial_no), as_dict=True)
+    #     # if len(lastrelatedstockledgerentry) == 0:
+    #     print(lastrelatedstockledgerentry)
+    #     print(len(lastrelatedstockledgerentry))
+
+    #     if len(lastrelatedstockledgerentry) == 0:
+    #         print("it is empty")
+
+    #     else:
+    #         print(lastrelatedstockledgerentry)
+
+
         
+    def after_insert(self):
+        lastrelatedstockledgerentry = frappe.db.sql("""SELECT sle.custom_nosquantity_after_transaction 
+                                                        FROM `tabStock Ledger Entry` sle
+                                                        WHERE sle.voucher_type = %s 
+                                                        AND sle.warehouse = %s 
+                                                        AND sle.item_code = %s 
+                                                        AND sle.batch_no = %s 
+                                                        AND sle.serial_no = %s
+                                                        ORDER BY sle.creation DESC 
+                                                        LIMIT 1 OFFSET 1;
+                                                                        """,
+        (self.voucher_type, self.warehouse, self.item_code, self.batch_no, self.serial_no), as_dict=True)
+        # if len(lastrelatedstockledgerentry) == 0:
+        print(lastrelatedstockledgerentry)
+        print(len(lastrelatedstockledgerentry))
+
+        # if len(lastrelatedstockledgerentry) == 0:
+        #     print("it is empty")
+
+        # else:
+        #     print(lastrelatedstockledgerentry)
+
+
+
+        StockLedgerEntryVoucher_type = frappe.get_last_doc(self.voucher_type)
+
+        qty_sign  = self.actual_qty/abs(self.actual_qty)
+
+        dictData=StockLedgerEntryVoucher_type.as_dict(no_nulls=True, convert_dates_to_str=False)
+
+        childTableName=dictData['items'][0]['doctype']
+
+        ItemsTable = frappe.get_doc(childTableName, self.voucher_detail_no)
+
+        try:
+            nosquantity=abs(ItemsTable.custom_nosquantity)*qty_sign 
+        except AttributeError:
+            nosquantity = 0.1
+
         if self.actual_qty == 0:
-            return self.db_set('custom_nosquantity', 0)
+            return self.db_set('custom_nosquantity', 231)
         else:
-            StockLedgerEntryVoucher_type = frappe.get_last_doc(self.voucher_type)
-
-            qty_sign  = self.actual_qty/abs(self.actual_qty)
-
-            dictData=StockLedgerEntryVoucher_type.as_dict(no_nulls=True, convert_dates_to_str=False)
-
-            childTableName=dictData['items'][0]['doctype']
-
-            ItemsTable = frappe.get_doc(childTableName, self.voucher_detail_no)
-
-            try:
-                nosquantity=abs(ItemsTable.custom_nosquantity)*qty_sign 
-            except AttributeError:
-                nosquantity = 0.1
             self.db_set('custom_nosquantity', nosquantity)
+            print("lastrelatedstockledgerentry")
+            print(lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction)
+            print(lastrelatedstockledgerentry[0])
+            self.db_set('custom_nosquantity_after_transaction',lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction+nosquantity)
+            
 
 
