@@ -2,20 +2,21 @@ import frappe
 from erpnext.stock.doctype.stock_ledger_entry.stock_ledger_entry import StockLedgerEntry
 class CustomStockLedgerEntry(StockLedgerEntry):
 
-
-        
     def after_insert(self):
-        lastrelatedstockledgerentry = frappe.db.sql("""SELECT sle.custom_nosquantity_after_transaction 
+        lastrelatedstockledgerentry = frappe.db.sql("""SELECT sle.custom_nosquantity_after_transaction
                                                         FROM `tabStock Ledger Entry` sle
-                                                        WHERE sle.voucher_type = %s 
-                                                        AND sle.warehouse = %s 
+                                                        WHERE 
+                                                        sle.warehouse = %s 
                                                         AND sle.item_code = %s 
-                                                        AND sle.batch_no = %s 
-                                                        AND sle.serial_no = %s
                                                         ORDER BY sle.creation DESC 
-                                                        LIMIT 1 OFFSET 1;
+                                                        LIMIT 1 offset 1;
                                                                         """,
-        (self.voucher_type, self.warehouse, self.item_code, self.batch_no, self.serial_no), as_dict=True)
+                                                        
+        ( self.warehouse, self.item_code), as_dict=True)
+
+
+        print("lastrelatedstockledgerentry",lastrelatedstockledgerentry)
+        print("self.actual_qty",self.actual_qty,self.warehouse, self.item_code, self.batch_no, self.serial_no)
 
         StockLedgerEntryVoucher_type = frappe.get_last_doc(self.voucher_type)
         try:
@@ -29,20 +30,37 @@ class CustomStockLedgerEntry(StockLedgerEntry):
         childTableName=dictData['items'][0]['doctype']
 
         ItemsTable = frappe.get_doc(childTableName, self.voucher_detail_no)
+        print("lastrelatedstockledgerentry",lastrelatedstockledgerentry)
+        # print("lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction",lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction)
 
         try:
             nosquantity=abs(ItemsTable.custom_nosquantity)*qty_sign 
-        except AttributeError:
-            nosquantity = 0.1
+            print("nosquantity",nosquantity)
 
-        # if self.actual_qty == 0:
-        #     return self.db_set('custom_nosquantity', 0)
-        # else:
-        self.db_set('custom_nosquantity', nosquantity)
+        except AttributeError:
+            print("AttributeError")
+            nosquantity = 0.1
+            print("nosquantity",nosquantity)
+
+        print("lastrelatedstockledgerentry",lastrelatedstockledgerentry)
+        # print("lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction",lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction)
+        print("nosquantity",nosquantity)
+
+
+
         try:
             self.db_set('custom_nosquantity_after_transaction', lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction + nosquantity)
+            if self.voucher_type == "Stock Reconciliation":
+                self.db_set('custom_nosquantity_after_transaction',  nosquantity)
+                self.db_set('custom_nosquantity', 0)
+            else:
+                self.db_set('custom_nosquantity', nosquantity)
+            print("tryyyyyyyyyyyyyyyyyyyyyyyyy")
         except IndexError:
             self.db_set('custom_nosquantity_after_transaction',  nosquantity)
+            self.db_set('custom_nosquantity', 0)
+            print("indexxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+
 
 
         # self.db_set('custom_nosquantity_after_transaction',lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction+nosquantity)
