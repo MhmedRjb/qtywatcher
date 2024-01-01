@@ -3,9 +3,9 @@ from erpnext.stock.doctype.stock_ledger_entry.stock_ledger_entry import StockLed
 class CustomStockLedgerEntry(StockLedgerEntry):
 
     def after_insert(self):
-        # get last doc of voucher type
+
         StockLedgerEntryVoucher_type = frappe.get_last_doc(self.voucher_type)
-        #check sign of Qty Change
+
         qty_sign  = self.actual_qty/abs(self.actual_qty)
 
         dictData=StockLedgerEntryVoucher_type.as_dict(no_nulls=True, convert_dates_to_str=False)
