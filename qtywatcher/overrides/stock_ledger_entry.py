@@ -8,11 +8,13 @@ class CustomStockLedgerEntry(StockLedgerEntry):
                                                         WHERE 
                                                         sle.warehouse = %s 
                                                         AND sle.item_code = %s 
+                                                        AND (sle.batch_no = %s OR sle.batch_no IS NULL OR sle.batch_no = '')
+                                                        AND (sle.serial_no = %s OR sle.serial_no IS NULL OR sle.serial_no = '')
                                                         ORDER BY sle.creation DESC 
                                                         LIMIT 1 offset 1;
                                                                         """,
+        ( self.warehouse, self.item_code,self.batch_no,self.serial_no,), as_dict=True)
                                                         
-        ( self.warehouse, self.item_code), as_dict=True)
 
 
         print("lastrelatedstockledgerentry",lastrelatedstockledgerentry)
@@ -58,7 +60,7 @@ class CustomStockLedgerEntry(StockLedgerEntry):
             print("tryyyyyyyyyyyyyyyyyyyyyyyyy")
         except IndexError:
             self.db_set('custom_nosquantity_after_transaction',  nosquantity)
-            self.db_set('custom_nosquantity', 0)
+            self.db_set('custom_nosquantity', nosquantity)
             print("indexxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 
 
