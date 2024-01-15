@@ -18,6 +18,9 @@ During the sales process, there's typically an insignificant loss, approximately
 ## Solution Overview
 - Separate Quantity Tracking: Implementing a secondary method to track the quantity of items apart from their weight ensures more accurate inventory management.
 
+## for developer who face the same issue 
+- this project will be not bad as a fast soultion but it is need a lot of work 
+
 
 
 ## License
