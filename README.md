@@ -21,7 +21,8 @@ During the sales process, there's typically an insignificant loss, approximately
 ## for developer who face the same issue 
 - this project will be not bad as a fast soultion but it is need a lot of work there is
   - there is cusotme fields in all fields really effect in stock ledger
-  - there is tow reports one for all transection and other for balance only  
+  - there is tow reports one for all transection and other for balance only
+  - in my way i will make it more Integrated  
 
 
 
