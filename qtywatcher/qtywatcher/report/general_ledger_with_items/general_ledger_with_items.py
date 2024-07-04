@@ -17,6 +17,9 @@ def build_conditions(filters):
             conditions += f" AND gle.party IN ('{party_list_str}')"
         else:
             conditions += f" AND gle.party = '{party_list}'"
+    # from data to date
+    conditions += f" AND gle.posting_date >= '{filters.get('from_date')}'"
+    conditions += f" AND gle.posting_date <= '{filters.get('to_date')}'"
 
     return conditions
 
@@ -27,20 +30,21 @@ def execute(filters):
     conditions = build_conditions(filters)
     data = frappe.db.sql(f"""SELECT
     gle.creation,
-    gle.account,
-    gle.party,
-    gle.debit,
-    gle.credit,
-    gle.against,
+        CASE
+        WHEN item.stock_qty < 0 AND gle.voucher_type = 'Purchase Invoice' THEN 'مرتد شراء'
+        WHEN item.stock_qty < 0 AND gle.voucher_type = 'Sales Invoice' THEN 'مرتجع مبيعات'
+        ELSE gle.voucher_type
+    END AS transaction_type,
     gle.voucher_type,
     gle.voucher_no,
-    gle.voucher_subtype,
-    item.rate,
-    COALESCE(item.amount, (gle.debit - gle.credit)) AS amount,                            
-    item.stock_qty,
     item.item_name,
-    (gle.debit - gle.credit) AS balance,
-    @balance_running := @balance_running + (gle.debit - gle.credit) AS running_balance
+    item.rate,
+    item.stock_qty,
+    COALESCE(item.amount, (gle.debit - gle.credit)) AS amount,                            
+
+    gle.debit,
+    gle.credit,
+    @balance_running := @balance_running + COALESCE(item.amount, (gle.debit - gle.credit)) AS running_balance
 FROM
     `tabGL Entry` AS gle
 LEFT JOIN
@@ -97,20 +101,55 @@ def get_columns(filters=None):
             "fieldtype": "Date",
             "width": 120,
         },
+                {
+            "label": _("transaction_type"),
+            "fieldname": "transaction_type",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+                {
+            "label": _("Voucher Type"),
+            "fieldname": "voucher_type",
+            "fieldtype": "Data",
+            "width": 120,
+            "hidden": 1,
+        },        
+
         {
-            "label": _("Account"),
-            "fieldname": "account",
-            "fieldtype": "Link",
-            "options": "Account",
+            "label": _("Voucher No"),
+            "fieldname": "voucher_no",
+			"fieldtype": "Dynamic Link",
+			"options": "voucher_type",
+            "width": 120,
+        },
+                {
+            "label": _("Item Name"),
+            "fieldname": "item_name",
+            "fieldtype": "Data",
+            "width": 120,
+        },
+
+        
+        {
+            "label": _("Rate"),
+            "fieldname": "rate",
+            "fieldtype": "float",
             "width": 120,
         },
         {
-            "label": _("Party"),
-            "fieldname": "party",
-            "fieldtype": "data",
-            "options": "Party",
+            "label": _("Stock Qty"),
+            "fieldname": "stock_qty",
+            "fieldtype": "float",
             "width": 120,
         },
+        {
+            "label": _("Amount"),
+            "fieldname": "amount",
+            "fieldtype": "float",
+            "width": 120,
+        },
+
+
         {
             "label": _("Debit"),
             "fieldname": "debit",
@@ -123,68 +162,12 @@ def get_columns(filters=None):
             "fieldtype": "float",
             "width": 120,
         },
-        {
-            "label": _("Against"),
-            "fieldname": "against",
-            "fieldtype": "Link",
-            "options": "Account",
-            "width": 120,
-        },
-        {
-            "label": _("Voucher Type"),
-            "fieldname": "voucher_type",
-            "fieldtype": "Data",
-            "width": 120,
-        },
-        {
-            "label": _("Voucher No"),
-            "fieldname": "voucher_no",
-			"fieldtype": "Dynamic Link",
-			"options": "voucher_type",
-            "width": 120,
-        },
-        {
-            "label": _("voucher subtype"),
-            "fieldname": "voucher_subtype",
-			"fieldtype": "data",
-            "width": 120,
-        },
         
-        {
-            "label": _("Rate"),
-            "fieldname": "rate",
-            "fieldtype": "Currency",
-            "width": 120,
-        },
-        {
-            "label": _("Amount"),
-            "fieldname": "amount",
-            "fieldtype": "Currency",
-            "width": 120,
-        },
-        {
-            "label": _("Stock Qty"),
-            "fieldname": "stock_qty",
-            "fieldtype": "float",
-            "width": 120,
-        },
-        {
-            "label": _("Item Name"),
-            "fieldname": "item_name",
-            "fieldtype": "Data",
-            "width": 120,
-        },
 
-        {
-            "label": _("Balance"),
-            "fieldname": "balance",
-            "fieldtype": "Currency",
-            "width": 120,
-        },
         {
             "label": _("Running Balance"),
             "fieldname": "running_balance",
-            "fieldtype": "Currency",
+            "fieldtype": "float",
             "width": 120,
         },
     ]
