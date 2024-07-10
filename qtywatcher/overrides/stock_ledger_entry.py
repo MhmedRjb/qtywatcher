@@ -29,7 +29,7 @@ class CustomStockLedgerEntry(StockLedgerEntry):
                 custom_nosquantity_after_transaction = self.last_record.custom_nosquantity_after_transaction + custom_nosquantity
         else:
             custom_nosquantity_after_transaction = custom_nosquantity
-
+            
         self.db_set('custom_nosquantity_after_transaction', custom_nosquantity_after_transaction)
         self.db_set('custom_nosquantity', custom_nosquantity)
         

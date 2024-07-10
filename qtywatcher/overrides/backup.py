@@ -43,10 +43,7 @@ class CustomStockLedgerEntry(StockLedgerEntry):
             print("nosquantity",nosquantity)
 
         print("lastrelatedstockledgerentry",lastrelatedstockledgerentry)
-        # print("lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction",lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction)
         print("nosquantity",nosquantity)
-
-
 
         try:
             self.db_set('custom_nosquantity_after_transaction', lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction + nosquantity)
