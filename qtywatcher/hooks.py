@@ -26,8 +26,8 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {"Sales Invoice" : "public/js/Sales_Invoice.js",
-              "Purchase Invoice" : "public/js/Purchase_Invoice.js",}
+# doctype_js = {"Sales Invoice" : "public/js/Sales_Invoice.js",
+#               "Purchase Invoice" : "public/js/Purchase_Invoice.js",}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -111,9 +111,8 @@ doctype_js = {"Sales Invoice" : "public/js/Sales_Invoice.js",
 # Override standard doctype classes
 
 override_doctype_class = {
-	"Stock Ledger Entry": "qtywatcher.overrides.stock_ledger_entry.CustomStockLedgerEntry",
-    "Sales Invoice": "qtywatcher.overrides.sales_invoice.CustomSalesInvoice",
-}
+	"Stock Ledger Entry": "qtywatcher.overrides.stock_ledger_entry.CustomStockLedgerEntry"
+    }
 
 # Document Events
 # ---------------
