@@ -49,11 +49,9 @@ class CustomStockLedgerEntry(StockLedgerEntry):
                 self.db_set('custom_nosquantity', 0)
             else:
                 self.db_set('custom_nosquantity', nosquantity)
-            print("tryyyyyyyyyyyyyyyyyyyyyyyyy")
         except IndexError:
             self.db_set('custom_nosquantity_after_transaction',  nosquantity)
             self.db_set('custom_nosquantity', nosquantity)
-            print("indexxxxxxxxxxxxxxxxxxxxxxxxxxxx")
 
 
 
