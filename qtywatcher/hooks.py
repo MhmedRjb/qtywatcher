@@ -11,10 +11,6 @@ app_license = "MIT"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/qtywatcher/css/qtywatcher.css"
 # app_include_js = "/assets/qtywatcher/js/qtywatcher.js"
-<<<<<<< HEAD
-
-=======
->>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
 # include js, css files in header of web template
 # web_include_css = "/assets/qtywatcher/css/qtywatcher.css"
 # web_include_js = "/assets/qtywatcher/js/qtywatcher.js"
@@ -30,21 +26,14 @@ app_license = "MIT"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-<<<<<<< HEAD
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-=======
 # doctype_js = {"Sales Invoice" : "public/js/Sales_Invoice.js",
 #               "Purchase Invoice" : "public/js/Purchase_Invoice.js",}
->>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
 # Home Pages
 # ----------
 
@@ -122,13 +111,8 @@ app_license = "MIT"
 # Override standard doctype classes
 
 override_doctype_class = {
-<<<<<<< HEAD
-	"Stock Ledger Entry": "qtywatcher.overrides.stock_ledger_entry.CustomStockLedgerEntry",
-}
-=======
 	"Stock Ledger Entry": "qtywatcher.overrides.stock_ledger_entry.CustomStockLedgerEntry"
     }
->>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
 
 # Document Events
 # ---------------
@@ -233,8 +217,4 @@ override_doctype_class = {
 # ]
 
 #add all custom fields to item
-<<<<<<< HEAD
-fixtures = ["Custom Field"]
-=======
 fixtures = ["Custom Field","Client Script"]
->>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
