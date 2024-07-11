@@ -6,6 +6,65 @@
   "collapsible": 0,
   "collapsible_depends_on": null,
   "columns": 0,
+<<<<<<< HEAD
+=======
+  "default": null,
+  "depends_on": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Custom Field",
+  "dt": "Sales Invoice",
+  "fetch_from": null,
+  "fetch_if_empty": 0,
+  "fieldname": "custom_party_balance",
+  "fieldtype": "Read Only",
+  "hidden": 0,
+  "hide_border": 0,
+  "hide_days": 0,
+  "hide_seconds": 0,
+  "ignore_user_permissions": 0,
+  "ignore_xss_filter": 0,
+  "in_global_search": 0,
+  "in_list_view": 0,
+  "in_preview": 0,
+  "in_standard_filter": 0,
+  "insert_after": "company_tax_id",
+  "is_system_generated": 0,
+  "is_virtual": 0,
+  "label": "party balance",
+  "length": 0,
+  "link_filters": null,
+  "mandatory_depends_on": null,
+  "modified": "2024-07-04 07:24:15.598016",
+  "module": null,
+  "name": "Sales Invoice-custom_party_balance",
+  "no_copy": 0,
+  "non_negative": 0,
+  "options": null,
+  "permlevel": 0,
+  "precision": "",
+  "print_hide": 0,
+  "print_hide_if_no_value": 0,
+  "print_width": null,
+  "read_only": 0,
+  "read_only_depends_on": null,
+  "report_hide": 0,
+  "reqd": 0,
+  "search_index": 0,
+  "show_dashboard": 0,
+  "sort_options": 0,
+  "translatable": 0,
+  "unique": 0,
+  "width": null
+ },
+ {
+  "allow_in_quick_entry": 0,
+  "allow_on_submit": 0,
+  "bold": 0,
+  "collapsible": 0,
+  "collapsible_depends_on": null,
+  "columns": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "default": "1",
   "depends_on": null,
   "description": null,
@@ -31,6 +90,10 @@
   "is_virtual": 0,
   "label": "Compact Item Print",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2023-12-30 19:08:18.855306",
   "module": null,
@@ -48,6 +111,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -85,6 +152,10 @@
   "is_virtual": 0,
   "label": "Print UOM after Quantity",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2023-12-30 19:08:18.887975",
   "module": null,
@@ -102,6 +173,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -139,6 +214,10 @@
   "is_virtual": 0,
   "label": "days till delivery",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2023-12-30 23:22:05.474769",
   "module": null,
@@ -156,6 +235,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 1,
   "unique": 0,
@@ -173,6 +256,7 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Custom Field",
+<<<<<<< HEAD
   "dt": "Stock Ledger Entry",
   "fetch_from": null,
   "fetch_if_empty": 0,
@@ -281,6 +365,8 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Custom Field",
+=======
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "dt": "Purchase Invoice Item",
   "fetch_from": null,
   "fetch_if_empty": 0,
@@ -301,6 +387,10 @@
   "is_virtual": 0,
   "label": "nosquantity",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2024-01-01 02:36:00.445814",
   "module": null,
@@ -318,6 +408,66 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+  "sort_options": 0,
+  "translatable": 0,
+  "unique": 0,
+  "width": null
+ },
+ {
+  "allow_in_quick_entry": 0,
+  "allow_on_submit": 0,
+  "bold": 0,
+  "collapsible": 0,
+  "collapsible_depends_on": null,
+  "columns": 0,
+  "default": null,
+  "depends_on": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Custom Field",
+  "dt": "Stock Ledger Entry",
+  "fetch_from": null,
+  "fetch_if_empty": 0,
+  "fieldname": "custom_nosquantity",
+  "fieldtype": "Float",
+  "hidden": 0,
+  "hide_border": 0,
+  "hide_days": 0,
+  "hide_seconds": 0,
+  "ignore_user_permissions": 0,
+  "ignore_xss_filter": 0,
+  "in_global_search": 0,
+  "in_list_view": 0,
+  "in_preview": 0,
+  "in_standard_filter": 0,
+  "insert_after": "section_break_11",
+  "is_system_generated": 0,
+  "is_virtual": 0,
+  "label": "nosquantity",
+  "length": 0,
+  "link_filters": null,
+  "mandatory_depends_on": null,
+  "modified": "2023-12-31 13:36:20.232406",
+  "module": null,
+  "name": "Stock Ledger Entry-custom_nosquantity",
+  "no_copy": 0,
+  "non_negative": 0,
+  "options": null,
+  "permlevel": 0,
+  "precision": "",
+  "print_hide": 0,
+  "print_hide_if_no_value": 0,
+  "print_width": null,
+  "read_only": 0,
+  "read_only_depends_on": null,
+  "report_hide": 0,
+  "reqd": 0,
+  "search_index": 0,
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -355,6 +505,10 @@
   "is_virtual": 0,
   "label": "nosquantity",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2024-01-01 01:27:44.722120",
   "module": null,
@@ -372,6 +526,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -409,6 +567,10 @@
   "is_virtual": 0,
   "label": "Tax Category",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2018-12-28 22:29:21.828090",
   "module": null,
@@ -426,6 +588,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -443,10 +609,17 @@
   "description": null,
   "docstatus": 0,
   "doctype": "Custom Field",
+<<<<<<< HEAD
   "dt": "Stock Reconciliation Item",
   "fetch_from": null,
   "fetch_if_empty": 0,
   "fieldname": "custom_nosquantity",
+=======
+  "dt": "Stock Ledger Entry",
+  "fetch_from": null,
+  "fetch_if_empty": 0,
+  "fieldname": "custom_nosquantity_after_transaction",
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "fieldtype": "Float",
   "hidden": 0,
   "hide_border": 0,
@@ -455,6 +628,7 @@
   "ignore_user_permissions": 0,
   "ignore_xss_filter": 0,
   "in_global_search": 0,
+<<<<<<< HEAD
   "in_list_view": 1,
   "in_preview": 0,
   "in_standard_filter": 0,
@@ -469,6 +643,23 @@
   "name": "Stock Reconciliation Item-custom_nosquantity",
   "no_copy": 0,
   "non_negative": 1,
+=======
+  "in_list_view": 0,
+  "in_preview": 0,
+  "in_standard_filter": 0,
+  "insert_after": "custom_nosquantity",
+  "is_system_generated": 0,
+  "is_virtual": 0,
+  "label": "nosquantity After Transaction",
+  "length": 0,
+  "link_filters": null,
+  "mandatory_depends_on": null,
+  "modified": "2024-01-01 16:00:29.708603",
+  "module": null,
+  "name": "Stock Ledger Entry-custom_nosquantity_after_transaction",
+  "no_copy": 0,
+  "non_negative": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "options": null,
   "permlevel": 0,
   "precision": "",
@@ -480,6 +671,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -517,6 +712,10 @@
   "is_virtual": 0,
   "label": "Print taxes with zero amount",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2023-12-30 19:08:18.921988",
   "module": null,
@@ -534,6 +733,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -571,6 +774,10 @@
   "is_virtual": 0,
   "label": "nosquantity",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2024-01-01 02:30:20.069928",
   "module": null,
@@ -588,6 +795,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -625,6 +836,10 @@
   "is_virtual": 0,
   "label": "nosquantity",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2024-01-01 02:34:32.777223",
   "module": null,
@@ -642,6 +857,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -679,6 +898,10 @@
   "is_virtual": 0,
   "label": "Is Your Company Address",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2020-10-14 17:41:40.878179",
   "module": null,
@@ -696,6 +919,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -733,6 +960,10 @@
   "is_virtual": 0,
   "label": "nosquantity",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2023-12-31 13:37:18.120511",
   "module": null,
@@ -750,6 +981,66 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+  "sort_options": 0,
+  "translatable": 0,
+  "unique": 0,
+  "width": null
+ },
+ {
+  "allow_in_quick_entry": 0,
+  "allow_on_submit": 0,
+  "bold": 0,
+  "collapsible": 0,
+  "collapsible_depends_on": null,
+  "columns": 0,
+  "default": null,
+  "depends_on": null,
+  "description": null,
+  "docstatus": 0,
+  "doctype": "Custom Field",
+  "dt": "Stock Reconciliation Item",
+  "fetch_from": null,
+  "fetch_if_empty": 0,
+  "fieldname": "custom_nosquantity",
+  "fieldtype": "Float",
+  "hidden": 0,
+  "hide_border": 0,
+  "hide_days": 0,
+  "hide_seconds": 0,
+  "ignore_user_permissions": 0,
+  "ignore_xss_filter": 0,
+  "in_global_search": 0,
+  "in_list_view": 1,
+  "in_preview": 0,
+  "in_standard_filter": 0,
+  "insert_after": "section_break_3",
+  "is_system_generated": 0,
+  "is_virtual": 0,
+  "label": "nosquantity",
+  "length": 0,
+  "link_filters": null,
+  "mandatory_depends_on": null,
+  "modified": "2024-01-01 03:53:01.431856",
+  "module": null,
+  "name": "Stock Reconciliation Item-custom_nosquantity",
+  "no_copy": 0,
+  "non_negative": 1,
+  "options": null,
+  "permlevel": 0,
+  "precision": "",
+  "print_hide": 0,
+  "print_hide_if_no_value": 0,
+  "print_width": null,
+  "read_only": 0,
+  "read_only_depends_on": null,
+  "report_hide": 0,
+  "reqd": 0,
+  "search_index": 0,
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
@@ -787,6 +1078,10 @@
   "is_virtual": 0,
   "label": "Is Billing Contact",
   "length": 0,
+<<<<<<< HEAD
+=======
+  "link_filters": null,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "mandatory_depends_on": null,
   "modified": "2019-12-02 11:00:03.432994",
   "module": null,
@@ -804,6 +1099,10 @@
   "report_hide": 0,
   "reqd": 0,
   "search_index": 0,
+<<<<<<< HEAD
+=======
+  "show_dashboard": 0,
+>>>>>>> 59955633bf0a3cc292b6242c928456da8815662f
   "sort_options": 0,
   "translatable": 0,
   "unique": 0,
