@@ -15,8 +15,6 @@ class CustomStockLedgerEntry(StockLedgerEntry):
                                                                         """,
         ( self.warehouse, self.item_code,self.batch_no,self.serial_no,), as_dict=True)
                                                         
-        print("lastrelatedstockledgerentry",lastrelatedstockledgerentry)
-        print("self.actual_qty",self.actual_qty,self.warehouse, self.item_code, self.batch_no, self.serial_no)
 
         StockLedgerEntryVoucher_type = frappe.get_last_doc(self.voucher_type)
         try:
