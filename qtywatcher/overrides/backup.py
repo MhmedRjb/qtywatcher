@@ -29,7 +29,6 @@ class CustomStockLedgerEntry(StockLedgerEntry):
 
         ItemsTable = frappe.get_doc(childTableName, self.voucher_detail_no)
         print("lastrelatedstockledgerentry",lastrelatedstockledgerentry)
-        # print("lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction",lastrelatedstockledgerentry[0].custom_nosquantity_after_transaction)
 
         try:
             nosquantity=abs(ItemsTable.custom_nosquantity)*qty_sign 
