@@ -2,7 +2,7 @@ var customDualQuantities = {};
 /*
 script to keeps the custom_nosquantity field in sync with the qty field.
 When an item doesn't have multiple quantities, custom_nosquantity matches qty 
-to keep everything consistent.
+to keep everything consistent
 */
 // TODO: add a custom field to the child table to store the dual quantity to simplify the script
 
