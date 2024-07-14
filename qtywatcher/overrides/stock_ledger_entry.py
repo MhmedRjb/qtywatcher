@@ -3,8 +3,11 @@ from erpnext.stock.doctype.stock_ledger_entry.stock_ledger_entry import StockLed
 class CustomStockLedgerEntry(StockLedgerEntry):
     def before_insert(self):
         try:
-            self.last_record = frappe.get_last_doc("Stock Ledger Entry", {"warehouse": self.warehouse, "item_code": self.item_code})
-        except:
+            self.last_record = frappe.get_last_doc("Stock Ledger Entry", {
+                "warehouse": self.warehouse, 
+                "item_code": self.item_code
+                })
+        except frappe.DoesNotExistError:
             self.last_record = None    
 
     
@@ -14,10 +17,7 @@ class CustomStockLedgerEntry(StockLedgerEntry):
         custom_nosquantity = frappe.get_doc(childtable,self.voucher_detail_no).get("custom_nosquantity")
 
  
-        if self.actual_qty<0:
-            custom_nosquantity = - abs(custom_nosquantity)
-        else :
-            custom_nosquantity = abs(custom_nosquantity)
+        custom_nosquantity = abs(custom_nosquantity) if self.actual_qty >= 0 else -abs(custom_nosquantity)
 
         if self.last_record:
             if self.voucher_type == "Stock Reconciliation":
