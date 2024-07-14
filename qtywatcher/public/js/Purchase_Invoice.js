@@ -37,6 +37,7 @@ function toggle_nosquantity_editability(frm) {
     $.each(frm.doc.items, function(i, d) {
         let grid_row = frm.fields_dict['items'].grid.grid_rows_by_docname[d.name];
         if (customDualQuantities[d.name] === 0) {
+            frappe.model.set_value(d.doctype, d.name, 'custom_nosquantity', d.qty)
             grid_row.toggle_editable('custom_nosquantity', false);
         } else {
             grid_row.toggle_editable('custom_nosquantity', true);
