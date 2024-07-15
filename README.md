@@ -12,6 +12,7 @@ This system addresses the need to track quantities of items, especially in indus
 4. Comprehensive Reporting
    1. stocke ledger qty show all movements of the secondary quantity 
    2. stock balance qty (secondary quantity)
+![07152-ezgif com-censor](https://github.com/user-attachments/assets/774b4413-ae13-42f6-b161-257880f9076f)
 
 # how to install 
 
