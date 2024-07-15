@@ -1,31 +1,36 @@
-# Quantity Tracking System for Inventory Management
+# Secondary QTY Tracking for Inventory Management / Multi Uom IN erpnext
 This system addresses the need to track quantities of items, especially in industries where products like cheese lose weight over time. The primary purpose is to maintain accurate inventory records and prevent discrepancies or potential theft.
 
-### Problem Statement
-- **Weight Fluctuations:** Certain items, such as cheese, may lose weight gradually, leading to discrepancies between actual weight and recorded weight in inventory.
-- **Risk of Mismanagement or Theft:** Relying solely on recorded weight can create opportunities for mismanagement or theft, as it might not accurately reflect the actual quantity of items in stock.
+# feature
 
-### Mismanagement Scenario 
-In a warehouse, we have 100 wheels of Romy cheese. These typically experience weight loss ranging from 4% to 10% due to various factors like raw material quality, weather, and storage conditions.
+1. a secondary quantity to accurately monitor stock levels, crucial for industries where products like cheese vary in weight over time.
+2. (dual uom check) in item page to allow secondary quantity  for specific items
+4. Comprehensive Reporting
+   1. stocke ledger qty show all movements of the secondary quantity 
+   2. stock balance qty (secondary quantity)
+![07152-ezgif com-censor](https://github.com/user-attachments/assets/774b4413-ae13-42f6-b161-257880f9076f)
 
-Let's calculate:
-100 Cheese Wheels * 13.5 kg (average weight) = 1350 kg.
-Assuming a loss of 4% to 10% (54 kg - 135 kg), the difference amounts to 81 kg, which equals approximately 4 to 5 cheese wheels. This represents the potential loss during the production phase.
-The variability in weight loss, ranging from 4% to 10%, could create confusion. For instance, the person in charge of inventory might inadvertently claim a 10% loss when, in reality, the actual loss is only 4%. This discrepancy could result in inaccuracies in the recorded inventory.
+# how to install 
 
-During the sales process, there's typically an insignificant loss, approximately around 0.05%, which is considered acceptable. so no worry in sales pahse
+```
+bench get-app  https://github.com/MhmedRjb/qtywatcher.git
+```
 
-## Solution Overview
-- Separate Quantity Tracking: Implementing a secondary method to track the quantity of items apart from their weight ensures more accurate inventory management.
+```
+bench --site <site_name> install-app  qtywatcher
+```
+# where is it working
+### 1. stock:
+   1. Stock Entry
+   2. Stock Reconciliation
+### 2. selling:
+   1. Sales Invoice
+   2. Sales Order
+### 3. buying
+   1. Purchase Order
+   2. Purchase Invoice
 
-## for developer who face the same issue 
-- this project will be not bad as a fast soultion but it is need a lot of work 
-  - there is cusotme fields in all fields effect in stock ledger
-  - there is tow reports one for all transection and other for balance only
-  - in my way i will make it more Integrated  
-
-
-
+  
 ## License
 This project is licensed under the MIT License.
 
