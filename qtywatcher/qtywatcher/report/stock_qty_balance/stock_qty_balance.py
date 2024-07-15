@@ -11,7 +11,7 @@ def build_columns():
         _("Item") + ":Link/Item:100",
         _("Warehouse") + ":Link/Warehouse:120",
         _("Stock Balance") + ":Float:120",
-        _("Stock Balance NOS") + ":Float:120",
+        _("Stock Balance sec qty") + ":Float:120",
     ]
 
 def build_conditions(filters):
