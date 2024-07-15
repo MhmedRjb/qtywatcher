@@ -1,6 +1,10 @@
 # Secondary QTY Tracking for Inventory Management / Multi Uom IN erpnext
 This system addresses the need to track quantities of items, especially in industries where products like cheese lose weight over time. The primary purpose is to maintain accurate inventory records and prevent discrepancies or potential theft.
 
+
+
+
+
 # feature
 
 1. a secondary quantity to accurately monitor stock levels, crucial for industries where products like cheese vary in weight over time.
