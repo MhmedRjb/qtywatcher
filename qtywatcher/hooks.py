@@ -216,4 +216,4 @@ override_doctype_class = {
 # ]
 
 #add all custom fields to item
-fixtures = ["Custom Field","Client Script"]
+fixtures = ["Custom Field"]
