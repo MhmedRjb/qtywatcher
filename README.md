@@ -18,7 +18,7 @@ bench get-app  https://github.com/MhmedRjb/qtywatcher.git
 ```
 bench --site <site_name> install-app  qtywatcher
 ```
-#where is it working
+# where is it working
 ### 1. stock:
    1. Stock Entry
    2. Stock Reconciliation
