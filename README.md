@@ -12,11 +12,11 @@ This system addresses the need to track quantities of items, especially in indus
 # how to install 
 
 ```
-bench get-app  https://github.com/MhmedRjb/Secondary_QTY_erpnext.git
+bench get-app  https://github.com/MhmedRjb/qtywatcher.git
 ```
 
 ```
-bench --site <site_name> install-app  Secondary_QTY_erpnext
+bench --site <site_name> install-app  qtywatcher
 ```
 
 
