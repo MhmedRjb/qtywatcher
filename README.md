@@ -18,8 +18,16 @@ bench get-app  https://github.com/MhmedRjb/qtywatcher.git
 ```
 bench --site <site_name> install-app  qtywatcher
 ```
-
-
+#where is it working
+### 1. stock:
+   1. Stock Entry
+   2. Stock Reconciliation
+### 2. selling:
+   1. Sales Invoice
+   2. Sales Order
+### 3. buying
+   1. Purchase Order
+   2. Purchase Invoice
 
   
 ## License
