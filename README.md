@@ -3,9 +3,6 @@ This system addresses the need to track quantities of items, especially in indus
 
 ![image](https://github.com/user-attachments/assets/22fdfd42-5f44-4c20-b220-05ef9c0f3523)
 
-
-
-
 # feature
 
 1. a secondary quantity to accurately monitor stock levels, crucial for industries where products like cheese vary in weight over time.

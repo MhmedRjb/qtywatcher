@@ -15,7 +15,7 @@
   "fieldname": "custom_nosquantity",
   "fieldtype": "Float",
   "insert_after": "received_qty",
-  "label": "Secondary QTY",
+  "label": "Sec QTY",
   "module": "qtywatcher",
   "name": "Purchase Invoice Item-custom_nosquantity"
  },
@@ -25,7 +25,7 @@
   "fieldname": "custom_nosquantity",
   "fieldtype": "Float",
   "insert_after": "section_break_11",
-  "label": "Secondary QTY change",
+  "label": "Sec QTY change",
   "module": null,
   "name": "Stock Ledger Entry-custom_nosquantity"
  },
@@ -35,7 +35,7 @@
     "fieldname": "custom_nosquantity_after_transaction",
     "fieldtype": "Float",
     "insert_after": "custom_nosquantity",
-    "label": "Secondary QTY After Transaction",
+    "label": "Sec QTY After Transaction",
     "module": "qtywatcher",
     "name": "Stock Ledger Entry-custom_nosquantity_after_transaction"
 },
@@ -45,7 +45,7 @@
     "fieldname": "custom_nosquantity",
     "fieldtype": "Float",
     "insert_after": "qty",
-    "label": "Secondary QTY",
+    "label": "Sec QTY",
     "module": "qtywatcher",
     "name": "Sales Invoice Item-custom_nosquantity"
 },
@@ -55,7 +55,7 @@
     "fieldname": "custom_nosquantity",
     "fieldtype": "Float",
     "insert_after": "qty",
-    "label": "Secondary QTY",
+    "label": "Sec QTY",
     "module": "qtywatcher",
     "name": "Sales Order Item-custom_nosquantity"
 },
@@ -65,7 +65,7 @@
   "fieldname": "custom_nosquantity",
   "fieldtype": "Float",
   "insert_after": "received_qty",
-  "label": "Secondary QTY",
+  "label": "Sec QTY",
   "module": null,
   "name": "Purchase Receipt Item-custom_nosquantity"
  },
@@ -75,7 +75,7 @@
   "fieldname": "custom_nosquantity",
   "fieldtype": "Float",
   "insert_after": "qty",
-  "label": "Secondary QTY",
+  "label": "Sec QTY",
   "module": "qtywatcher",
   "name": "Purchase Order Item-custom_nosquantity"
  },
@@ -85,7 +85,7 @@
   "fieldname": "custom_nosquantity",
   "fieldtype": "Float",
   "insert_after": "quantity_section",
-  "label": "Secondary QTY",
+  "label": "Sec QTY",
   "module": "qtywatcher",
   "name": "Stock Entry Detail-custom_nosquantity"
  },
@@ -95,7 +95,7 @@
   "fieldname": "custom_nosquantity",
   "fieldtype": "Float",
   "insert_after": "section_break_3",
-  "label": "Secondary QTY",
+  "label": "Sec QTY",
   "module": "qtywatcher",
   "name": "Stock Reconciliation Item-custom_nosquantity"
  }
