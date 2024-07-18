@@ -43,65 +43,30 @@ def build_conditions(filters):
 def execute(filters):
     columns = build_columns()
     conditions = build_conditions(filters)
-    simple_view_enabled = filters.get("simple view") 
-    x = "" 
-    try :
-        x += f" '{filters['simple_view']}'"
-        data = frappe.db.sql(f"""
-            SELECT 
-                item_code as Item,
-                DATE_FORMAT(CONCAT(posting_date, ' ', posting_time), '%Y-%m-%d %H') AS combined_date_time,
-                COALESCE(CASE WHEN actual_qty > 0 THEN actual_qty ELSE 0 END, 0) AS in_qty,
-                COALESCE(CASE WHEN actual_qty > 0 THEN custom_nosquantity ELSE 0 END, 0) AS in_qtyNOS,
-                COALESCE(CASE WHEN actual_qty < 0 THEN -actual_qty ELSE 0 END, 0) AS out_qty,
-                COALESCE(CASE WHEN actual_qty < 0 THEN -custom_nosquantity ELSE 0 END, 0) AS out_qtyNOS,
-                warehouse,
-                qty_after_transaction AS stock_balance,
-                custom_nosquantity_after_transaction as stock_balanceNOS,
-                voucher_type,
-                voucher_no,
-                batch_no
+    data = frappe.db.sql(f"""
+        SELECT 
+            item_code as Item,
+            CONCAT_WS(' ', DATE_FORMAT(posting_date, '%Y-%m-%d'), TIME_FORMAT(posting_time, '%H:%i:%s')) AS combined_date_time,
+            COALESCE(CASE WHEN actual_qty > 0 THEN actual_qty ELSE 0 END, 0) AS in_qty,
+            COALESCE(CASE WHEN actual_qty > 0 THEN custom_nosquantity ELSE 0 END, 0) AS in_sec_qty,
+            COALESCE(CASE WHEN actual_qty < 0 THEN actual_qty ELSE 0 END, 0) AS out_qty,
+            COALESCE(CASE WHEN actual_qty < 0 THEN custom_nosquantity ELSE 0 END, 0) AS out_sec_qty,
+            warehouse,
+            qty_after_transaction AS stock_balance,
+            custom_nosquantity_after_transaction as stock_balanceNOS,
+            voucher_type,
+            voucher_no, 
+            batch_no
 
-            FROM 
-                `tabStock Ledger Entry`
-            WHERE 
-                is_cancelled = 0 AND docstatus = 1 {conditions} 
-            GROUP BY 
-                voucher_detail_no, combined_date_time
-            ORDER BY 
-                combined_date_time
-        """)
-    except KeyError:
-                data = frappe.db.sql(f"""
-            SELECT 
-                item_code as Item,
-                DATE_FORMAT(CONCAT(posting_date, ' ', posting_time), '%Y-%m-%d') AS combined_date_time,
-
-                COALESCE(CASE WHEN actual_qty > 0 THEN actual_qty ELSE 0 END, 0) AS in_qty,
-                COALESCE(CASE WHEN actual_qty > 0 THEN custom_nosquantity ELSE 0 END, 0) AS in_qtyNOS,
-
-                COALESCE(CASE WHEN actual_qty < 0 THEN -actual_qty ELSE 0 END, 0) AS out_qty,
-                COALESCE(CASE WHEN actual_qty < 0 THEN -custom_nosquantity ELSE 0 END, 0) AS out_qtyNOS,
-
-                warehouse,
-
-                qty_after_transaction AS stock_balance,
-                custom_nosquantity_after_transaction as stock_balanceNOS,
-
-                
-                voucher_type,
-                voucher_no,
-                batch_no
-
-            FROM 
-                `tabStock Ledger Entry`
-            WHERE 
-                is_cancelled = 0 AND docstatus = 1 {conditions} 
-            GROUP BY 
-                voucher_detail_no, combined_date_time
-            ORDER BY 
-                combined_date_time
-        """)
+        FROM 
+            `tabStock Ledger Entry`
+        WHERE 
+            is_cancelled = 0 AND docstatus = 1 {conditions} 
+        GROUP BY 
+            voucher_detail_no, combined_date_time
+        ORDER BY 
+            combined_date_time
+    """)
 
 
 
