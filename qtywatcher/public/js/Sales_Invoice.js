@@ -47,7 +47,6 @@ function toggle_nosquantity_editability(frm) {
             frappe.model.set_value(d.doctype, d.name, 'custom_nosquantity', d.qty);
             grid_row.toggle_editable('custom_nosquantity', false);
         } else {
-            d.custom_nosquantity = customDualQuantities[d.name];
             grid_row.toggle_editable('custom_nosquantity', true);
         }
     });
