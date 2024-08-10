@@ -87,7 +87,8 @@
   "insert_after": "quantity_section",
   "label": "Sec QTY",
   "module": "qtywatcher",
-  "name": "Stock Entry Detail-custom_nosquantity"
+  "name": "Stock Entry Detail-custom_nosquantity",
+  "list_view": 1
  },
 {
   "doctype": "Custom Field",
