@@ -26,7 +26,7 @@
   "fieldtype": "Float",
   "insert_after": "section_break_11",
   "label": "Sec QTY change",
-  "module": null,
+  "module": "qtywatcher",
   "name": "Stock Ledger Entry-custom_nosquantity"
  },
 {
@@ -66,7 +66,7 @@
   "fieldtype": "Float",
   "insert_after": "received_qty",
   "label": "Sec QTY",
-  "module": null,
+  "module": "qtywatcher",
   "name": "Purchase Receipt Item-custom_nosquantity"
  },
  {
