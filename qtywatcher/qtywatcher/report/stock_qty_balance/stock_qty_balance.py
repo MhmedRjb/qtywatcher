@@ -31,39 +31,59 @@ def build_conditions(filters):
 def execute(filters):
     columns = build_columns()
     conditions = build_conditions(filters)
+    stock_balance_nos_condition = "AND sb.stock_balance != 0" if filters.get("not_exulde_zero") else ""
     data = frappe.db.sql(f"""
         SELECT 
-        s.Item,
-        s.warehouse,
-        s.stock_balance,
-        s.stock_balanceNOS
+            sb.Item,
+            sb.warehouse,
+            sb.stock_balance,
+            sn.stock_balanceNOS
         FROM 
         (
-        SELECT 
-        item_code as Item,
-        DATE_FORMAT(CONCAT(posting_date, ' ', posting_time), '%Y-%m-%d %H:%i:%s') AS combined_date_time,
-        warehouse,
-        qty_after_transaction AS stock_balance,
-        custom_nosquantity_after_transaction as stock_balanceNOS
-        FROM 
-        `tabStock Ledger Entry`
-        WHERE 
-        is_cancelled = 0 AND docstatus = 1 {conditions} 
-        ) s
+            SELECT 
+                item_code as Item,
+                DATE_FORMAT(CONCAT(posting_date, ' ', posting_time), '%Y-%m-%d %H:%i:%s') AS combined_date_time,
+                warehouse,
+                qty_after_transaction AS stock_balance
+            FROM 
+                `tabStock Ledger Entry`
+            WHERE 
+                1=1 {conditions}
+        ) sb
         JOIN 
         (
-        SELECT 
-        item_code,
-        warehouse,
-        MAX(DATE_FORMAT(CONCAT(posting_date, ' ', posting_time), '%Y-%m-%d %H:%i:%s')) AS max_date
-        FROM 
-        `tabStock Ledger Entry`
-        WHERE 
-        is_cancelled = 0 AND docstatus = 1 {conditions} 
-        GROUP BY 
-        item_code, warehouse
+            SELECT 
+                item_code as Item,
+                DATE_FORMAT(creation, '%Y-%m-%d %H:%i:%s') AS combined_date_time,
+                warehouse,
+                custom_nosquantity_after_transaction as stock_balanceNOS
+            FROM 
+                `tabStock Ledger Entry`
+            WHERE 
+                1=1 {conditions}
+        ) sn
+        ON 
+            sb.Item = sn.Item AND sb.warehouse = sn.warehouse
+        JOIN 
+        (
+            SELECT 
+                item_code,
+                warehouse,
+                MAX(DATE_FORMAT(CONCAT(posting_date, ' ', posting_time), '%Y-%m-%d %H:%i:%s')) AS max_posting_date,
+                MAX(DATE_FORMAT(creation, '%Y-%m-%d %H:%i:%s')) AS max_creation_date
+            FROM 
+                `tabStock Ledger Entry`
+            WHERE 
+                1=1 {conditions}
+            GROUP BY 
+                item_code, warehouse
         ) m
         ON 
-        s.Item = m.item_code AND s.warehouse = m.warehouse AND s.combined_date_time = m.max_date
+            sb.Item = m.item_code AND sb.warehouse = m.warehouse 
+            AND sb.combined_date_time = m.max_posting_date
+            AND sn.combined_date_time = m.max_creation_date
+            WHERE
+            1=1 {stock_balance_nos_condition}
+
     """)
     return columns, data

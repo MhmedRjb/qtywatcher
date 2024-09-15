@@ -5,7 +5,7 @@ class CustomStockLedgerEntry(StockLedgerEntry):
         try:
             self.last_record = frappe.get_last_doc("Stock Ledger Entry", {
                 "warehouse": self.warehouse, 
-                "item_code": self.item_code
+                "item_code": self.item_code,
                 })
         except frappe.DoesNotExistError:
             self.last_record = None    
@@ -19,15 +19,18 @@ class CustomStockLedgerEntry(StockLedgerEntry):
  
         custom_nosquantity = abs(custom_nosquantity) if self.actual_qty >= 0 else -abs(custom_nosquantity)
 
-        if self.last_record:
-            if self.voucher_type == "Stock Reconciliation":
-                custom_nosquantity_after_transaction = custom_nosquantity
-                custom_nosquantity = 0
-            else:
-                custom_nosquantity_after_transaction = self.last_record.custom_nosquantity_after_transaction + custom_nosquantity
-        else:
+        if not self.last_record:
             custom_nosquantity_after_transaction = custom_nosquantity
             
+        if self.voucher_type == "Stock Reconciliation":
+            custom_nosquantity_after_transaction = custom_nosquantity
+            custom_nosquantity = 0
+        else:
+            try:
+                custom_nosquantity_after_transaction = self.last_record.custom_nosquantity_after_transaction + custom_nosquantity
+            except AttributeError:
+                custom_nosquantity_after_transaction = custom_nosquantity
+                            
         self.db_set('custom_nosquantity_after_transaction', custom_nosquantity_after_transaction)
         self.db_set('custom_nosquantity', custom_nosquantity)
         
