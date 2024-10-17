@@ -36,7 +36,9 @@ doctype_js = {
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
-
+app_include_js = [
+    "/assets/qtywatcher/js/custom_pos_item_details.js"
+]
 
 # Home Pages
 # ----------
@@ -221,4 +223,4 @@ override_doctype_class = {
 # ]
 
 #add all custom fields to item
-fixtures = ["Custom Field"]
+# fixtures = ["Custom Field"]

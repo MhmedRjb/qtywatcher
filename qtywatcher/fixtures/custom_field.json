@@ -51,6 +51,17 @@
 },
 {
     "doctype": "Custom Field",
+    "dt": "POS Invoice Item",
+    "fieldname": "custom_nosquantity",
+    "fieldtype": "Float",
+    "insert_after": "qty",
+    "label": "Sec QTY",
+    "module": "qtywatcher",
+    "name": "POS Invoice Item-custom_nosquantity"
+},
+
+{
+    "doctype": "Custom Field",
     "dt": "Sales Order Item",
     "fieldname": "custom_nosquantity",
     "fieldtype": "Float",
