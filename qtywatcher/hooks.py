@@ -115,24 +115,33 @@ app_include_js = [
 # DocType Class
 # ---------------
 # Override standard doctype classes
-
 override_doctype_class = {
 	"Stock Ledger Entry": "qtywatcher.overrides.stock_ledger_entry.CustomStockLedgerEntry",
-    "Pos Invoice": "qtywatcher.overrides.pos_invoice.CustomPOSInvoice",
+    # "POS Invoice": "qtywatcher.overrides.pos_invoice.CustomPOSInvoice"
+    
     }
 
 # Document Events
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
-
+doc_events = {
+    "Sales Invoice": {
+        "validate": "qtywatcher.utility.validate_nosquantity"
+    },
+    "Purchase Invoice": {
+        "validate": "qtywatcher.utility.validate_nosquantity"
+    },
+    "Stock Entry": {
+        "validate": "qtywatcher.utility.validate_nosquantity"
+    },
+    "Stock Reconciliation": {
+        "validate":"qtywatcher.utility.validate_nosquantity"
+    },
+    "POS Invoice": {
+        "validate": "qtywatcher.utility.validate_nosquantity"
+    }
+}
 # Scheduled Tasks
 # ---------------
 
