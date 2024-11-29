@@ -116,9 +116,7 @@ app_include_js = [
 # ---------------
 # Override standard doctype classes
 override_doctype_class = {
-	"Stock Ledger Entry": "qtywatcher.overrides.stock_ledger_entry.CustomStockLedgerEntry",
-    # "POS Invoice": "qtywatcher.overrides.pos_invoice.CustomPOSInvoice"
-    
+	"Stock Ledger Entry": "qtywatcher.overrides.stock_ledger_entry.CustomStockLedgerEntry"
     }
 
 # Document Events
